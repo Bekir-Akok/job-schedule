@@ -79,7 +79,7 @@ cron.schedule("* * * * *", async () => {
           .collection("competitions")
           .updateOne(
             { _id: competition._id },
-            { $set: { status: "complete" } }
+            { $set: { status: "complete", winner: winner[0]?.creator } }
           );
       }
     }
